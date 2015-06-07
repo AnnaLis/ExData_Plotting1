@@ -23,11 +23,11 @@ png(filename = "plot4.png",  width=480, height=480)
 par(mfrow=c(2,2))
 
 #1
-hist(df$Global_active_power,  col = "red", xlab="Global active power (kilowatts)",
-     main="Global Active Power")
+plot(df$dt,df$Global_active_power, type="l", xlab=" ", ylab="Global Active Power")
 
 #2
-plot(df$dt, df$Global_active_power, type="l", xlab="datetime", ylab="Global active power (kilowatts)")
+plot(df$dt,df$Voltage, type="l", xlab="datetime", ylab="Voltage")
+
 
 #3
 plot(df$dt, df$Sub_metering_1, type="l", xlab=" ", ylab="Energy sub metering")
