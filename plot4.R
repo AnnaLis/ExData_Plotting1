@@ -1,9 +1,12 @@
-setwd("C:/Users/Ania/Documents/GitHub/ExData_Plotting1")
+#setwd("C:/Users/Ania/Documents/GitHub/ExData_Plotting1")
 
-install.packages("sqldf")
+
+# Installing required packages
+list.of.packages <- c("sqldf", "lubridate")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 library(sqldf)
-install.packages("lubridate")
-library("lubridate")
+library(lubridate)
 
 df <- read.csv.sql("household_power_consumption.txt", 
                    sql = "select * from file where Date in ('1/2/2007','2/2/2007')", sep=";")
@@ -35,6 +38,7 @@ legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
        col=c("black","red","blue"), border="white")
 
 #4
-plot(df$dt,sub$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
+plot(df$dt, df$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
 
 dev.off()
+

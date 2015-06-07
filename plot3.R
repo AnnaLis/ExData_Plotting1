@@ -1,9 +1,11 @@
-setwd("C:/Users/Ania/Documents/GitHub/ExData_Plotting1")
+#setwd("C:/Users/Ania/Documents/GitHub/ExData_Plotting1")
 
-install.packages("sqldf")
+# Installing required packages
+list.of.packages <- c("sqldf", "lubridate")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 library(sqldf)
-install.packages("lubridate")
-library("lubridate")
+library(lubridate)
 
 df <- read.csv.sql("household_power_consumption.txt", 
                    sql = "select * from file where Date in ('1/2/2007','2/2/2007')", sep=";")
