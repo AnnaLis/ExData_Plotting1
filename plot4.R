@@ -35,7 +35,7 @@ lines(df$dt,df$Sub_metering_2, col="red")
 lines(df$dt,df$Sub_metering_3, col="blue")
 legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), 
        pch="____",
-       col=c("black","red","blue"), border="white")
+       col=c("black","red","blue"), bty="n")
 
 #4
 plot(df$dt, df$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
